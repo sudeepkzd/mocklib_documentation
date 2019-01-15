@@ -103,7 +103,8 @@
                 </div>
               </div>
             <p>Few predefined trips are presented here. Use <code><a href="../Classes/ZendriveMockDriveBuilder.html#/c:objc(cs)ZendriveMockDriveBuilder(cm)presetMockDrive:">+[ZendriveMockDriveBuilder presetMockDrive:]</a></code> to
-get the corresponding predefined <code><a href="../Classes/ZendriveMockDriveBuilder.html">ZendriveMockDriveBuilder</a></code>.</p>
+get the corresponding predefined <code><a href="../Classes/ZendriveMockDriveBuilder.html">ZendriveMockDriveBuilder</a></code>. It can be build to get a <code><a href="../Classes/ZendriveMockDrive.html">ZendriveMockDrive</a></code> object and then simulated
+using <code><a href="../Classes/ZendriveMockDrive.html#/c:objc(cs)ZendriveMockDrive(im)simulateDrive:error:">-[ZendriveMockDrive simulateDrive:error:]</a></code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -122,7 +123,10 @@ get the corresponding predefined <code><a href="../Classes/ZendriveMockDriveBuil
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>10 min urban trip</p>
+                        <p>A <code>ZendrivePresetTripType</code> for an urban trip.<br>
+<b>Distance</b>: 4445 meters<br>
+<b>Duration</b>: 10 minutes<br>
+<b>Events</b>: <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventHardBrake">Hard brake</a> and <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventAggressiveAcceleration">Aggressive Acceleration</a></p>
 
                       </div>
                       <div class="declaration">
@@ -149,7 +153,10 @@ get the corresponding predefined <code><a href="../Classes/ZendriveMockDriveBuil
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>TODO</p>
+                        <p>A <code>ZendrivePresetTripType</code> for a highway trip.<br>
+<b>Distance</b>: 59112 meters<br>
+<b>Duration</b>: 58 minutes<br>
+<b>Events</b>: <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventHardBrake">Hard brake</a>, <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventOverSpeeding">overspeeding</a> and <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventPhoneHandling">phone handling</a></p>
 
                       </div>
                       <div class="declaration">
@@ -176,7 +183,10 @@ get the corresponding predefined <code><a href="../Classes/ZendriveMockDriveBuil
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>TODO</p>
+                        <p>A <code>ZendrivePresetTripType</code> for an urban trip with collision.<br>
+<b>Distance</b>: 50130 meters<br>
+<b>Duration</b>: 31 minutes<br>
+<b>Events</b>: <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventHardBrake">Hard brake</a>, <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventAccident">accident/collision</a> and <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventPhoneHandling">phone handling</a></p>
 
                       </div>
                       <div class="declaration">
@@ -203,7 +213,9 @@ get the corresponding predefined <code><a href="../Classes/ZendriveMockDriveBuil
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>TODO</p>
+                        <p>A <code>ZendrivePresetTripType</code> for <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveDriveType.html#/c:@E@ZendriveDriveType@ZendriveDriveTypeNonDriving">non-driving trip</a><br>
+<b>Distance</b>: 74990 meters<br>
+<b>Duration</b>: 66 minutes<br></p>
 
                       </div>
                       <div class="declaration">
@@ -230,7 +242,9 @@ get the corresponding predefined <code><a href="../Classes/ZendriveMockDriveBuil
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>TODO</p>
+                        <p>A <code>ZendrivePresetTripType</code> for an <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveDriveType.html#/c:@E@ZendriveDriveType@ZendriveDriveTypeInvalid">invalid trip</a><br>
+<b>Distance</b>: 1624 meters<br>
+<b>Duration</b>: 14.7 seconds<br></p>
 
                       </div>
                       <div class="declaration">

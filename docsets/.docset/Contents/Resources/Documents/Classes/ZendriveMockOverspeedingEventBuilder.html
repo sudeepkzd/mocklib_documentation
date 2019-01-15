@@ -102,7 +102,7 @@
 
                 </div>
               </div>
-            <p>A specialization of <code><a href="../Classes/ZendriveMockRangeEventBuilder.html">ZendriveMockRangeEventBuilder</a></code> used to build a overspeeding event.</p>
+            <p>An event builder for <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventOverSpeeding">overspeeding</a> event.</p>
 
           </section>
           <section class="section task-group-section">
@@ -111,9 +111,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)ZendriveMockOverspeedingEventBuilder(im)initWithStartTimestamp:endTimestamp:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithStartTimestamp:endTimestamp:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockOverspeedingEventBuilder(im)initWithStartTimestamp:endTimestamp:">-initWithStartTimestamp:endTimestamp:</a>
+                    <a name="/c:objc(cs)ZendriveMockOverspeedingEventBuilder(im)initWithStartTimestamp:endTimestamp:speedingData:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithStartTimestamp:endTimestamp:speedingData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ZendriveMockOverspeedingEventBuilder(im)initWithStartTimestamp:endTimestamp:speedingData:">-initWithStartTimestamp:endTimestamp:speedingData:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,7 +129,8 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="nf">initWithStartTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">startTimestamp</span>
-                        <span class="nf">endTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">endTimestamp</span><span class="p">;</span></code></pre>
+                        <span class="nf">endTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">endTimestamp</span>
+                        <span class="nf">speedingData</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">speedingData</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -161,76 +162,15 @@
                                 </div>
                               </td>
                             </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)ZendriveMockOverspeedingEventBuilder(im)setSpeedInfo:maxSpeed:avgSpeed:"></a>
-                    <a name="//apple_ref/objc/Method/-setSpeedInfo:maxSpeed:avgSpeed:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockOverspeedingEventBuilder(im)setSpeedInfo:maxSpeed:avgSpeed:">-setSpeedInfo:maxSpeed:avgSpeed:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Set speed limit, maximum speed and average speed</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockOverspeedingEventBuilder</span> <span class="o">*</span><span class="p">)</span>
-<span class="nf">setSpeedInfo</span><span class="p">:(</span><span class="kt">double</span><span class="p">)</span><span class="nv">speedLimitMPS</span>
-    <span class="nf">maxSpeed</span><span class="p">:(</span><span class="kt">double</span><span class="p">)</span><span class="nv">maxUserSpeedMPS</span>
-    <span class="nf">avgSpeed</span><span class="p">:(</span><span class="kt">double</span><span class="p">)</span><span class="nv">userSpeedMPS</span><span class="p">;</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
                             <tr>
                               <td>
                                 <code>
-                                <em>speedLimitMPS</em>
+                                <em>speedingData</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Speed limit. See <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveSpeedingData.html#/c:objc(cs)ZendriveSpeedingData(py)speedLimitMPS">here</a></p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>maxUserSpeedMPS</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Maximum user speed. See <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveSpeedingData.html#/c:objc(cs)ZendriveSpeedingData(py)maxUserSpeedMPS">here</a></p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>userSpeedMPS</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Average user speed during this overspeeding event. See <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveSpeedingData.html#/c:objc(cs)ZendriveSpeedingData(py)userSpeedMPS">here</a></p>
+                                  <p><a href="https://zendrive-root.bitbucket.io/ios/docs/appledoc-5.6.1/Classes/ZendriveSpeedingData.html">Overspeeding information</a></p>
                                 </div>
                               </td>
                             </tr>

@@ -102,7 +102,7 @@
 
                 </div>
               </div>
-            <p>A specialization of <code><a href="../Classes/ZendriveMockPointEventBuilder.html">ZendriveMockPointEventBuilder</a></code> used to build an <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventAccident">accident event</a></p>
+            <p>An event builder for <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventAccident">accident</a> event.</p>
 
           </section>
           <section class="section task-group-section">
@@ -111,9 +111,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)ZendriveMockAccidentEventBuilder(im)initWithTimestamp:tripTimestamp:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithTimestamp:tripTimestamp:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockAccidentEventBuilder(im)initWithTimestamp:tripTimestamp:">-initWithTimestamp:tripTimestamp:</a>
+                    <a name="/c:objc(cs)ZendriveMockAccidentEventBuilder(im)initWithTimestamp:tripTimestamp:accidentId:confidence:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithTimestamp:tripTimestamp:accidentId:confidence:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ZendriveMockAccidentEventBuilder(im)initWithTimestamp:tripTimestamp:accidentId:confidence:">-initWithTimestamp:tripTimestamp:accidentId:confidence:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,7 +129,9 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="nf">initWithTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">timestamp</span>
-                  <span class="nf">tripTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">tripTimestamp</span><span class="p">;</span></code></pre>
+                  <span class="nf">tripTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">tripTimestamp</span>
+                     <span class="nf">accidentId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">accidentId</span>
+                     <span class="nf">confidence</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">confidence</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -161,63 +163,32 @@
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accidentId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveAccidentInfo.html#/c:objc(cs)ZendriveAccidentInfo(py)accidentId">accident identifier</a>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>confidence</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveAccidentInfo.html#/c:objc(cs)ZendriveAccidentInfo(py)confidence">accident confidence</a></p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)ZendriveMockAccidentEventBuilder(im)setAccidentId:"></a>
-                    <a name="//apple_ref/objc/Method/-setAccidentId:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockAccidentEventBuilder(im)setAccidentId:">-setAccidentId:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Set <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveAccidentInfo.html#/c:objc(cs)ZendriveAccidentInfo(py)accidentId">accident id</a>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockAccidentEventBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setAccidentId</span><span class="p">:</span>
-    <span class="p">(</span><span class="n">nullable</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">accidentId</span><span class="p">;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)ZendriveMockAccidentEventBuilder(im)setConfidence:"></a>
-                    <a name="//apple_ref/objc/Method/-setConfidence:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockAccidentEventBuilder(im)setConfidence:">-setConfidence:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Set <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveAccidentInfo.html#/c:objc(cs)ZendriveAccidentInfo(py)confidence">accident confidence</a></p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockAccidentEventBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setConfidence</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">confidence</span><span class="p">;</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>

@@ -102,7 +102,7 @@
 
                 </div>
               </div>
-            <p>A specialization of <code><a href="../Classes/ZendriveMockRangeEventBuilder.html">ZendriveMockRangeEventBuilder</a></code> used to build a hard turn event.</p>
+            <p>An event builder for <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveEventType.html#/c:@E@ZendriveEventType@ZendriveEventHardTurn">hard turn</a> event.</p>
 
           </section>
           <section class="section task-group-section">
@@ -111,9 +111,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)ZendriveMockHardTurnEventBuilder(im)initWithStartTimestamp:endTimestamp:"></a>
-                    <a name="//apple_ref/objc/Method/-initWithStartTimestamp:endTimestamp:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockHardTurnEventBuilder(im)initWithStartTimestamp:endTimestamp:">-initWithStartTimestamp:endTimestamp:</a>
+                    <a name="/c:objc(cs)ZendriveMockHardTurnEventBuilder(im)initWithStartTimestamp:endTimestamp:turnDirection:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithStartTimestamp:endTimestamp:turnDirection:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ZendriveMockHardTurnEventBuilder(im)initWithStartTimestamp:endTimestamp:turnDirection:">-initWithStartTimestamp:endTimestamp:turnDirection:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,7 +129,8 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="nf">initWithStartTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">startTimestamp</span>
-                        <span class="nf">endTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">endTimestamp</span><span class="p">;</span></code></pre>
+                        <span class="nf">endTimestamp</span><span class="p">:(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nv">endTimestamp</span>
+                       <span class="nf">turnDirection</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">turnDirection</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -161,36 +162,20 @@
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>turnDirection</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)turnDirection">turn direction</a> for this hard turn event.</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)ZendriveMockHardTurnEventBuilder(im)setTurnDirection:"></a>
-                    <a name="//apple_ref/objc/Method/-setTurnDirection:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockHardTurnEventBuilder(im)setTurnDirection:">-setTurnDirection:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Set <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)turnDirection">turn direction</a> for this hard turn event.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockHardTurnEventBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setTurnDirection</span><span class="p">:</span>
-    <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nv">turnDirection</span><span class="p">;</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
