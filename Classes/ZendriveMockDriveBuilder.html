@@ -104,6 +104,33 @@
               </div>
             <p>Builder class for <code><a href="../Classes/ZendriveMockDrive.html">ZendriveMockDrive</a></code>. Only auto trips supported for now.</p>
 
+<p>Sample Usage (Preset Drives):</p>
+<pre class="highlight objective_c"><code> <span class="cp">#import &lt;ZendriveSDKTesting/ZendriveMockDrive.h&gt;
+</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="n">mockDriveBuilder</span> <span class="o">=</span> <span class="p">[</span><span class="n">ZendriveMockDriveBuilder</span> <span class="nf">presetMockDrive</span><span class="p">:</span><span class="n">Urban10MinTrip</span><span class="p">];</span>
+ <span class="n">ZendriveMockDrive</span> <span class="o">*</span><span class="n">drive</span> <span class="o">=</span> <span class="p">[</span><span class="n">mockDriveBuilder</span> <span class="nf">build</span><span class="p">];</span>
+</code></pre>
+
+<p>Sample Usage (Custom Drives):</p>
+<pre class="highlight objective_c"><code> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="n">builder</span> <span class="o">=</span> <span class="p">[</span><span class="n">ZendriveMockDriveBuilder</span> <span class="nf">newAutoDriveBuilderWithStartTimestamp</span><span class="p">:</span><span class="n">tripStartTs</span> <span class="nf">endTimestamp</span><span class="p">:</span><span class="n">tripEndTs</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setAverageSpeed</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setDriveType</span><span class="p">:</span><span class="n">ZendriveDriveTypeDrive</span><span class="p">];</span>
+
+ <span class="c1">// set waypoints</span>
+ <span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n">ZendriveLocationPoint</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableArray</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
+ <span class="n">ZendriveLocationPoint</span> <span class="n">point1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ZendriveLocationPoint</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTimestamp</span><span class="p">:</span><span class="n">locTimestamp</span> <span class="nf">latitude</span><span class="p">:</span><span class="n">locLatitude</span> <span class="n">longitude</span><span class="o">:</span><span class="n">locLongitude</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">points</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">point1</span><span class="p">];</span>
+ <span class="c1">//create and add more points</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setWaypoints</span><span class="p">:</span><span class="n">points</span><span class="p">];</span>
+
+ <span class="c1">// set events</span>
+ <span class="n">ZendriveMockAccidentEventBuilder</span> <span class="o">*</span><span class="n">accidentBuilder</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ZendriveMockAccidentEventBuilder</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTimestamp</span><span class="p">:</span><span class="n">accidentTimestamp</span> <span class="nf">tripTimestamp</span><span class="p">:</span><span class="n">tripStartTs</span> <span class="n">accidentId</span><span class="o">:</span><span class="err">@”</span><span class="n">mockAccident</span><span class="err">”</span> <span class="n">confidence</span><span class="o">:</span><span class="n">ZendriveAccidentConfidenceHigh</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">addEventBuilder</span><span class="p">:</span><span class="n">accidentBuilder</span><span class="p">];</span>
+
+ <span class="c1">// set delays</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setTripStartDelayMillis</span><span class="p">:</span><span class="mi">1000</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setTripEndDelayMillis</span><span class="p">:</span><span class="mi">2000</span><span class="p">];</span>
+</code></pre>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -152,7 +179,7 @@
                       <div class="abstract">
                         <p>Return a new <code>ZendriveMockDriveBuilder</code> represented by <code><a href="../Enums/ZendrivePresetTripType.html">ZendrivePresetTripType</a></code>.
 The builder can be modified and then build to get a <code><a href="../Classes/ZendriveMockDrive.html">ZendriveMockDrive</a></code>.
-This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</code></p>
+This can then be simulated using <code><a href="../Classes/ZendriveMockDrive.html#/c:objc(cs)ZendriveMockDrive(im)simulateDrive:error:">-[ZendriveMockDrive simulateDrive:error:]</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -180,7 +207,7 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the average speed of trip in metres/second</p>
+                        <p>Set the <code><a href="../Classes/ZendriveMockDrive.html#/c:objc(cs)ZendriveMockDrive(py)averageSpeed">ZendriveMockDrive.averageSpeed</a></code> of trip in metres/second.</p>
 
                       </div>
                       <div class="declaration">
@@ -207,7 +234,7 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the trip distance in metres.</p>
+                        <p>Set the <code><a href="../Classes/ZendriveMockDrive.html#/c:objc(cs)ZendriveMockDrive(py)distance">ZendriveMockDrive.distance</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -234,14 +261,15 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveDriveType.html">drive type</a>.</p>
+                        <p>Set the <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveDriveType.html">drive type</a>.
+Default value is <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveDriveType.html#/c:@E@ZendriveDriveType@ZendriveDriveTypeInvalid">ZendriveDriveTypeInvalid</a>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setDriveType</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">driveType</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setDriveType</span><span class="p">:(</span><span class="n">ZendriveDriveType</span><span class="p">)</span><span class="nv">driveType</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -261,7 +289,7 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add an event builder. See <code><a href="../Classes/ZendriveMockEventBuilder.html">ZendriveMockEventBuilder</a></code></p>
+                        <p>Add a <code><a href="../Classes/ZendriveMockEventBuilder.html">ZendriveMockEventBuilder</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -289,7 +317,7 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Clear all event builders in this builder</p>
+                        <p>Clear all event builders.</p>
 
                       </div>
                       <div class="declaration">
@@ -316,7 +344,7 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set max speed in metres/second</p>
+                        <p>Set <code><a href="../Classes/ZendriveMockDrive.html#/c:objc(cs)ZendriveMockDrive(py)maxSpeed">ZendriveMockDrive.maxSpeed</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -343,14 +371,16 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveScore.html">driving behaviour score</a> for this trip.</p>
+                        <p>Set the <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveScore.html">driving behaviour score</a> for this trip.
+Default value of score is -1.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setScore</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">driveScore</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setScore</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveDriveScore</span> <span class="o">*</span><span class="p">)</span><span class="nv">driveScore</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -370,14 +400,15 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveUserMode.html">user mode</a>.</p>
+                        <p>Set the <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveUserMode.html">user mode</a>.
+Default value is <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Enums/ZendriveUserMode.html#/c:@E@ZendriveUserMode@ZendriveUserModeDriver">ZendriveUserModeDriver</a>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setUserMode</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">userMode</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setUserMode</span><span class="p">:(</span><span class="n">ZendriveUserMode</span><span class="p">)</span><span class="nv">userMode</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -404,7 +435,8 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setWayPoints</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">waypoints</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setWayPoints</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">ZendriveLocationPoint</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">waypoints</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -508,14 +540,16 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set <code><a href="../Classes/ZendriveMockDrive.html#/c:objc(cs)ZendriveMockDrive(py)phonePosition">ZendriveMockDrive.phonePosition</a></code>.</p>
+                        <p>Set <code><a href="../Classes/ZendriveMockDrive.html#/c:objc(cs)ZendriveMockDrive(py)phonePosition">ZendriveMockDrive.phonePosition</a></code>.
+TODO: add phone position link (pre-release task).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setPhonePosition</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">phonePosition</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="p">)</span><span class="nf">setPhonePosition</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">ZendrivePhonePosition</span><span class="p">)</span><span class="nv">phonePosition</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -535,8 +569,7 @@ This can then be simulated using <code>ZendriveMockDrive.simulateDrive:error:</c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Build and return a <code>ZendriveMockDrive object</code>.
-Multiple invocations on the same builder return the same <code><a href="../Classes/ZendriveMockDrive.html">ZendriveMockDrive</a></code> object.</p>
+                        <p>Build and return a <code><a href="../Classes/ZendriveMockDrive.html">ZendriveMockDrive</a></code> object.</p>
 
                       </div>
                       <div class="declaration">
@@ -555,7 +588,7 @@ Multiple invocations on the same builder return the same <code><a href="../Class
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-21)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

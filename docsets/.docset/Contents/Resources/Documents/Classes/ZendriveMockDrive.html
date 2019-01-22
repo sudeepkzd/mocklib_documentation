@@ -102,7 +102,12 @@
 
                 </div>
               </div>
-            <p>This class contains information necessary to simulate drive and relevant drive information.</p>
+            <p>Information of the drive to be simulated. This information will be used in the <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveInfo.html">ZendriveDriveInfo</a> and <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveAccidentInfo.html">AccidentInfo</a> objects returned by the ZendriveSDK callbacks via <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Protocols/ZendriveDelegateProtocol.html">ZendriveDelegateProtocol</a>.</p>
+
+<p>Currently only processStartOfDrive, processEndOfDrive, processAnalysisOfDrive and processAccidentDetected ZendriveSDK callbacks will be received by the application.<br>
+ Use <code><a href="../Classes/ZendriveMockDriveBuilder.html">ZendriveMockDriveBuilder</a></code> to construct <code>ZendriveMockDrive</code> instances.<br>
+ To build a predefined mock drive, use <code><a href="../Classes/ZendriveMockDriveBuilder.html#/c:objc(cs)ZendriveMockDriveBuilder(cm)presetMockDrive:">+[ZendriveMockDriveBuilder presetMockDrive:]</a></code>.<br>
+ To build a custom mock drive, use <code><a href="../Classes/ZendriveMockDriveBuilder.html#/c:objc(cs)ZendriveMockDriveBuilder(cm)newAutoDriveBuilderWithStartTimestamp:endTimestamp:">+[ZendriveMockDriveBuilder newAutoDriveBuilderWithStartTimestamp:endTimestamp:]</a></code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -158,7 +163,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">int</span> <span class="n">driveType</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">ZendriveDriveType</span> <span class="n">driveType</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -185,7 +190,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">int</span> <span class="n">userMode</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">ZendriveUserMode</span> <span class="n">userMode</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -205,7 +210,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The start timestamp of trip in milliseconds since epoch.</p>
+                        <p>The <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveInfo.html#/c:objc(cs)ZendriveDriveInfo(py)startTimestamp">start timestamp</a> of trip in milliseconds since epoch.</p>
 
                       </div>
                       <div class="declaration">
@@ -232,7 +237,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The end timestamp of trip in milliseconds since epoch.</p>
+                        <p>The <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveInfo.html#/c:objc(cs)ZendriveDriveInfo(py)endTimestamp">end timestamp</a> of trip in milliseconds since epoch.</p>
 
                       </div>
                       <div class="declaration">
@@ -259,7 +264,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The average speed of trip in metres/second.</p>
+                        <p>The <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveInfo.html#/c:objc(cs)ZendriveDriveInfo(py)averageSpeed">average speed</a> of trip in metres/second.</p>
 
                       </div>
                       <div class="declaration">
@@ -286,7 +291,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum speed of trip in metres/second.</p>
+                        <p>The <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveInfo.html#/c:objc(cs)ZendriveDriveInfo(py)maxSpeed">maximum speed</a> of trip in metres/second.</p>
 
                       </div>
                       <div class="declaration">
@@ -313,7 +318,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The distance of the trip in metres.</p>
+                        <p>The <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveInfo.html#/c:objc(cs)ZendriveDriveInfo(py)distance">distance</a> of the trip in metres.</p>
 
                       </div>
                       <div class="declaration">
@@ -353,7 +358,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSArray</span> <span class="o">*</span><span class="n">waypoints</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">ZendriveLocationPoint</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">waypoints</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -381,7 +387,8 @@ This array is populated using <code><a href="../Classes/ZendriveMockEventBuilder
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSArray</span> <span class="o">*</span><span class="n">events</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">ZendriveEvent</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">events</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -409,7 +416,8 @@ This array is populated using <code><a href="../Classes/ZendriveMockEventBuilder
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">NSArray</span> <span class="o">*</span><span class="n">accidentInfos</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">ZendriveAccidentInfo</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">accidentInfos</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -436,7 +444,7 @@ This array is populated using <code><a href="../Classes/ZendriveMockEventBuilder
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">ZendriveDriveScore</span> <span class="o">*</span><span class="n">score</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nonnull</span><span class="p">)</span> <span class="n">ZendriveDriveScore</span> <span class="o">*</span><span class="n">score</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -463,7 +471,7 @@ This array is populated using <code><a href="../Classes/ZendriveMockEventBuilder
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">int</span> <span class="n">phonePosition</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">ZendrivePhonePosition</span> <span class="n">phonePosition</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -624,7 +632,7 @@ Refer to <code><a href="../Enums/ZendriveMockError.html">ZendriveMockError</a></
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-21)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -170,6 +170,135 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)ZendriveMockDrive"></a>
+                    <a name="//apple_ref/objc/Class/ZendriveMockDrive" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ZendriveMockDrive">ZendriveMockDrive</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information of the drive to be simulated. This information will be used in the <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveDriveInfo.html">ZendriveDriveInfo</a> and <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveAccidentInfo.html">AccidentInfo</a> objects returned by the ZendriveSDK callbacks via <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Protocols/ZendriveDelegateProtocol.html">ZendriveDelegateProtocol</a>.</p>
+
+<p>Currently only processStartOfDrive, processEndOfDrive, processAnalysisOfDrive and processAccidentDetected ZendriveSDK callbacks will be received by the application.<br>
+ Use <code><a href="Classes/ZendriveMockDriveBuilder.html">ZendriveMockDriveBuilder</a></code> to construct <code>ZendriveMockDrive</code> instances.<br>
+ To build a predefined mock drive, use <code><a href="Classes/ZendriveMockDriveBuilder.html#/c:objc(cs)ZendriveMockDriveBuilder(cm)presetMockDrive:">+[ZendriveMockDriveBuilder presetMockDrive:]</a></code>.<br>
+ To build a custom mock drive, use <code><a href="Classes/ZendriveMockDriveBuilder.html#/c:objc(cs)ZendriveMockDriveBuilder(cm)newAutoDriveBuilderWithStartTimestamp:endTimestamp:">+[ZendriveMockDriveBuilder newAutoDriveBuilderWithStartTimestamp:endTimestamp:]</a></code>.</p>
+
+                        <a href="Classes/ZendriveMockDrive.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">ZendriveMockDrive</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ZendriveMockDriveBuilder"></a>
+                    <a name="//apple_ref/objc/Class/ZendriveMockDriveBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ZendriveMockDriveBuilder">ZendriveMockDriveBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Builder class for <code><a href="Classes/ZendriveMockDrive.html">ZendriveMockDrive</a></code>. Only auto trips supported for now.</p>
+
+<p>Sample Usage (Preset Drives):</p>
+<pre class="highlight objective_c"><code> <span class="cp">#import &lt;ZendriveSDKTesting/ZendriveMockDrive.h&gt;
+</span> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="n">mockDriveBuilder</span> <span class="o">=</span> <span class="p">[</span><span class="n">ZendriveMockDriveBuilder</span> <span class="nf">presetMockDrive</span><span class="p">:</span><span class="n">Urban10MinTrip</span><span class="p">];</span>
+ <span class="n">ZendriveMockDrive</span> <span class="o">*</span><span class="n">drive</span> <span class="o">=</span> <span class="p">[</span><span class="n">mockDriveBuilder</span> <span class="nf">build</span><span class="p">];</span>
+</code></pre>
+
+<p>Sample Usage (Custom Drives):</p>
+<pre class="highlight objective_c"><code> <span class="n">ZendriveMockDriveBuilder</span> <span class="o">*</span><span class="n">builder</span> <span class="o">=</span> <span class="p">[</span><span class="n">ZendriveMockDriveBuilder</span> <span class="nf">newAutoDriveBuilderWithStartTimestamp</span><span class="p">:</span><span class="n">tripStartTs</span> <span class="nf">endTimestamp</span><span class="p">:</span><span class="n">tripEndTs</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setAverageSpeed</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setDriveType</span><span class="p">:</span><span class="n">ZendriveDriveTypeDrive</span><span class="p">];</span>
+
+ <span class="c1">// set waypoints</span>
+ <span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n">ZendriveLocationPoint</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableArray</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
+ <span class="n">ZendriveLocationPoint</span> <span class="n">point1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ZendriveLocationPoint</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTimestamp</span><span class="p">:</span><span class="n">locTimestamp</span> <span class="nf">latitude</span><span class="p">:</span><span class="n">locLatitude</span> <span class="n">longitude</span><span class="o">:</span><span class="n">locLongitude</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">points</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">point1</span><span class="p">];</span>
+ <span class="c1">//create and add more points</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setWaypoints</span><span class="p">:</span><span class="n">points</span><span class="p">];</span>
+
+ <span class="c1">// set events</span>
+ <span class="n">ZendriveMockAccidentEventBuilder</span> <span class="o">*</span><span class="n">accidentBuilder</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ZendriveMockAccidentEventBuilder</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithTimestamp</span><span class="p">:</span><span class="n">accidentTimestamp</span> <span class="nf">tripTimestamp</span><span class="p">:</span><span class="n">tripStartTs</span> <span class="n">accidentId</span><span class="o">:</span><span class="err">@”</span><span class="n">mockAccident</span><span class="err">”</span> <span class="n">confidence</span><span class="o">:</span><span class="n">ZendriveAccidentConfidenceHigh</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">addEventBuilder</span><span class="p">:</span><span class="n">accidentBuilder</span><span class="p">];</span>
+
+ <span class="c1">// set delays</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setTripStartDelayMillis</span><span class="p">:</span><span class="mi">1000</span><span class="p">];</span>
+ <span class="p">[</span><span class="n">builder</span> <span class="nf">setTripEndDelayMillis</span><span class="p">:</span><span class="mi">2000</span><span class="p">];</span>
+</code></pre>
+
+                        <a href="Classes/ZendriveMockDriveBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">ZendriveMockDriveBuilder</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ZendriveMockEventBuilder"></a>
+                    <a name="//apple_ref/objc/Class/ZendriveMockEventBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ZendriveMockEventBuilder">ZendriveMockEventBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Base event builder. This will seldom be initialized directly. Instead use some of the specific event builders
+ like <code><a href="Classes/ZendriveMockAccidentEventBuilder.html">ZendriveMockAccidentEventBuilder</a></code>, <code><a href="Classes/ZendriveMockHardBrakeEventBuilder.html">ZendriveMockHardBrakeEventBuilder</a></code>, <code><a href="Classes/ZendriveMockOverspeedingEventBuilder.html">ZendriveMockOverspeedingEventBuilder</a></code> etc.</p>
+
+                        <a href="Classes/ZendriveMockEventBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">ZendriveMockEventBuilder</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)ZendriveMockHardBrakeEventBuilder"></a>
                     <a name="//apple_ref/objc/Class/ZendriveMockHardBrakeEventBuilder" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)ZendriveMockHardBrakeEventBuilder">ZendriveMockHardBrakeEventBuilder</a>
@@ -341,10 +470,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Base point event builder. A point event is one which occurs <q>at a single instant</q> as compared to
- over a period of time (<a href="%60ZendriveMockRangeEventBuilder%60">range event</a>).
- This will seldom be initialized directly. Instead use some of the specific event builders
- (like <code><a href="Classes/ZendriveMockAccidentEventBuilder.html">ZendriveMockAccidentEventBuilder</a></code>)</p>
+                        <p>Base point event builder. Point events are instantaneous events. The <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)startTime">start timestamp</a> and <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)endTime">end timestamp</a> are equal. Also, <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)startLocation">start location</a> is equal to <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)stopLocation">end location</a>.<br>
+ This will seldom be initialized directly. Instead use some of the specific event builders (like <code><a href="Classes/ZendriveMockAccidentEventBuilder.html">ZendriveMockAccidentEventBuilder</a></code>).</p>
 
                         <a href="Classes/ZendriveMockPointEventBuilder.html" class="slightly-smaller">See more</a>
                       </div>
@@ -376,10 +503,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Base range event builder. A range event is one which occurs over a period of time as compared to
- a <a href="%60ZendriveMockPointEventBuilder%60">point event</a>.
- This will seldom be initialized directly. Instead use some of the specific range event builders
- (like <code><a href="Classes/ZendriveMockHardBrakeEventBuilder.html">ZendriveMockHardBrakeEventBuilder</a></code>)</p>
+                        <p>Base range event builder. Range events are events which span a time duration. The <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)startTime">start timestamp</a> and <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)endTime">end timestamp</a> are different. Also, <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)startLocation">start location</a> is different from <a href="https://zendrive-root.bitbucket.io/ios/docs/sdk-5.6.0/Classes/ZendriveEvent.html#/c:objc(cs)ZendriveEvent(py)stopLocation">end location</a>.<br>
+ This will seldom be initialized directly. Instead use some of the specific range event builders (like <code><a href="Classes/ZendriveMockHardBrakeEventBuilder.html">ZendriveMockHardBrakeEventBuilder</a></code>).</p>
 
                         <a href="Classes/ZendriveMockRangeEventBuilder.html" class="slightly-smaller">See more</a>
                       </div>
@@ -396,107 +521,10 @@
                 </li>
               </ul>
             </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)ZendriveMockEventBuilder"></a>
-                    <a name="//apple_ref/objc/Class/ZendriveMockEventBuilder" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockEventBuilder">ZendriveMockEventBuilder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Base event builder. This will seldom be initialized directly. Instead use some of the specific event builders
- like <code><a href="Classes/ZendriveMockAccidentEventBuilder.html">ZendriveMockAccidentEventBuilder</a></code>, <code><a href="Classes/ZendriveMockHardBrakeEventBuilder.html">ZendriveMockHardBrakeEventBuilder</a></code>, <code><a href="Classes/ZendriveMockOverspeedingEventBuilder.html">ZendriveMockOverspeedingEventBuilder</a></code> etc.</p>
-
-                        <a href="Classes/ZendriveMockEventBuilder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">ZendriveMockEventBuilder</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)ZendriveMockDrive"></a>
-                    <a name="//apple_ref/objc/Class/ZendriveMockDrive" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockDrive">ZendriveMockDrive</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This class contains information necessary to simulate drive and relevant drive information.</p>
-
-                        <a href="Classes/ZendriveMockDrive.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">ZendriveMockDrive</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)ZendriveMockDriveBuilder"></a>
-                    <a name="//apple_ref/objc/Class/ZendriveMockDriveBuilder" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)ZendriveMockDriveBuilder">ZendriveMockDriveBuilder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Builder class for <code><a href="Classes/ZendriveMockDrive.html">ZendriveMockDrive</a></code>. Only auto trips supported for now.</p>
-
-                        <a href="Classes/ZendriveMockDriveBuilder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">ZendriveMockDriveBuilder</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-21)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
